@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edit post</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+            body {
+                background-color: #D7F0F6;
+            }
+        </style>
+</head>
+<body>
+<h2 class = "text-center"> Paste view</h2>
+
+<div class="container">
+    <div class="form-body">
+        <label>id</label>
+        <input type="hidden" name="id" th:field="${paste.id}" class="form-control" readonly/>
+    </div>
+    <div class="form-body">
+        <label>Title</label>
+        <h2 th:text="${paste.title}"></h2>
+    </div>
+    <div class="form-body">
+        <label>Author</label>
+        <h4 th:text="${paste.author}"></h4>
+    </div>
+    <div class="form-body">
+        <label>Content</label>
+        <pre th:text="${paste.content}"></pre>
+    </div>
+</div>
+<a th:href="@{/}">Back to home page</a>
+</body>
+</html>
