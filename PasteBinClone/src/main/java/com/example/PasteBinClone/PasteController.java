@@ -20,7 +20,6 @@ public class PasteController {
     public String add(Model model) {
         Paste paste = new Paste();
         model.addAttribute("paste", paste);
-        System.out.println(model);
         return "add";
     }
     @PostMapping("/save")
@@ -29,18 +28,18 @@ public class PasteController {
         return "redirect:/pastes";
     }
 
-    @GetMapping(path = "/delete/{id}")
+    @GetMapping(path = "/{id}/delete")
     public String deletePaste(@PathVariable Integer id) {
         pasteService.deletePaste(id);
         return "redirect:/pastes";
     }
-    @GetMapping("/update/{id}")
+    @GetMapping(path="/pastes/{id}/update")
     public String editPaste(@PathVariable(name = "id")Integer id, Model model) throws PasteNotFoundException {
         Paste paste = pasteService.get(id);
         model.addAttribute("paste", paste);
         return "edit-form";
     }
-    @PostMapping("/update/{id}")
+    @PostMapping("/pastes/{id}/update")
     public String submitEditForm(@PathVariable Integer id, Paste paste) {
         pasteService.updatePaste(id, paste);
         return "redirect:/pastes";
