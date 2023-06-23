@@ -15,7 +15,7 @@
 </head>
 <body>
     <h2 class="text-center"> Edit paste</h2>
-    <form th:action="@{'/update/' + ${paste.id}}" th:object="${paste}" method="POST">
+    <form th:action="@{/pastes/{id}/update(id=${paste.id})}" th:object="${paste}" method="POST">
         <input type="hidden" th:field="*{id}" />
         <h3>Paste author</h3>
         <div class="form-body"><input type="text" name="author" th:field="*{author}" placeholder="Paste author" readonly/></div>
